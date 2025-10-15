@@ -11,7 +11,7 @@ function UserTable() {
   const [feedback, setFeedback] = useState({ name: "", comment: "", rating: "" });
   const [message, setMessage] = useState("");
 
-  // Fetch users data from API
+ 
   useEffect(() => {
     axios.get("https://jsonplaceholder.typicode.com/users")
       .then(response => {
@@ -24,12 +24,12 @@ function UserTable() {
       });
   }, []);
 
-  // Handle feedback form change
+  
   const handleChange = (e) => {
     setFeedback({ ...feedback, [e.target.name]: e.target.value });
   };
 
-  // Handle feedback submission
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post("http://localhost:5000/feedback", feedback)
